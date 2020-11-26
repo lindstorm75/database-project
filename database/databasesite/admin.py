@@ -3,25 +3,25 @@ from django.contrib import admin
 from .models import Employee, Department, Warehouse, Item, Lott, Customer, Order
 
 class EmployeeView(admin.ModelAdmin):
-  list_display = ("employee_number", "first_name", "last_name", "dnumber")
+  list_display = ("number", "first_name", "last_name", "dnumber")
 
 class DepartmentView(admin.ModelAdmin):
-  list_display = ("department_number", "department_name")
+  list_display = ("number", "name")
 
 class WarehouseView(admin.ModelAdmin):
-  list_display = ("warehouse_number", "name", "location")
+  list_display = ("number", "name", "location")
 
 class ItemView(admin.ModelAdmin):
-  list_display = ("item_number", "name", "lott")
+  list_display = ("number", "name", "lott")
 
 class LottView(admin.ModelAdmin):
-  list_display = ("lott_number", "date", "warehouse_number")
+  list_display = ("number", "date", "warehouse_number")
 
 class CustomerView(admin.ModelAdmin):
-  list_display = ("customer_id", "name")
+  list_display = ("id", "name")
 
 class OrderView(admin.ModelAdmin):
-  list_display = ("order_id", "item", "employee", "amount")
+  list_display = ("id", "item", "employee", "amount")
 
 admin.site.register(Employee, EmployeeView)
 admin.site.register(Department, DepartmentView)
