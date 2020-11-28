@@ -2,25 +2,25 @@ from django.contrib import admin
 from .models import Employee, Department, Warehouse, Item, Project, Customer, Order
 
 class EmployeeView(admin.ModelAdmin):
-  list_display = ("number", "first_name", "last_name", "dnumber", "phone", "email")
+  list_display = ("id", "first_name", "last_name", "department_id", "phone", "email")
 
 class DepartmentView(admin.ModelAdmin):
-  list_display = ("number", "name")
+  list_display = ("id", "name")
 
 class WarehouseView(admin.ModelAdmin):
-  list_display = ("number", "name", "location")
+  list_display = ("id", "name", "location")
 
 class ProjectView(admin.ModelAdmin):
-  list_display = ("number", "name")
+  list_display = ("id", "name", "employee_id", "customer_id")
 
 class ItemView(admin.ModelAdmin):
-  list_display = ("number", "name","amount", "lot", "price", "warehouseNum")
+  list_display = ("id", "name","amount", "lott_id", "price", "warehouse_id")
 
 class CustomerView(admin.ModelAdmin):
-  list_display = ("id", "name", "projectNum")
+  list_display = ("id", "name")
 
 class OrderView(admin.ModelAdmin):
-  list_display = ("id", "item", "employee", "amount", "project", "datetime")
+  list_display = ("id", "item_id", "employee_id", "amount", "datetime")
 
 admin.site.register(Employee, EmployeeView)
 admin.site.register(Department, DepartmentView)
