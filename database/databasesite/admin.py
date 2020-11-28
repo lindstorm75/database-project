@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Employee, Department, Warehouse, Item, Project, Customer, Order
 
 class EmployeeView(admin.ModelAdmin):
-  list_display = ("id", "first_name", "last_name", "department_id", "phone", "email")
+  list_display = ("id", "first_name", "last_name", "location", "phone", "email", "department_id")
 
 class DepartmentView(admin.ModelAdmin):
   list_display = ("id", "name")
@@ -14,7 +14,7 @@ class ProjectView(admin.ModelAdmin):
   list_display = ("id", "name")
 
 class ItemView(admin.ModelAdmin):
-  list_display = ("id", "name","amount", "lott_id", "price", "warehouse_id")
+  list_display = ("id", "name",  "price", "amount", "lott_id", "warehouse_id")
 
 class CustomerView(admin.ModelAdmin):
   list_display = ("id", "name")

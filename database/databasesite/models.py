@@ -4,7 +4,7 @@ class Department(models.Model):
   id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=30)
   def __str__(self):
-    return f"{self.number}"
+    return f"{self.id}"
 
 class Employee(models.Model):
   id = models.CharField(max_length=10, primary_key=True)
@@ -15,7 +15,7 @@ class Employee(models.Model):
   email = models.EmailField(null=False)
   department_id = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="employee")
   def __str__(self):
-    return f"{self.number}"
+    return f"{self.id}"
 
 class Warehouse(models.Model):
   id = models.AutoField(primary_key=True)
@@ -25,7 +25,7 @@ class Warehouse(models.Model):
     return f"{self.id}"
 
 class Project(models.Model):
-  id = models.CharField(max_length=5, primary_key=True)
+  id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=30)
   def __str__(self):
     return f"{self.id}"
