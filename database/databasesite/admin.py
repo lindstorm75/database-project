@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Employee, Department, Warehouse, Item, Lott, Customer, Order
+from .models import Employee, Department, Warehouse, Item, Project, Customer, Order
 
 class EmployeeView(admin.ModelAdmin):
-  list_display = ("number", "first_name", "last_name", "dnumber")
+  list_display = ("number", "first_name", "last_name", "dnumber", "phone", "email")
 
 class DepartmentView(admin.ModelAdmin):
   list_display = ("number", "name")
@@ -10,22 +10,22 @@ class DepartmentView(admin.ModelAdmin):
 class WarehouseView(admin.ModelAdmin):
   list_display = ("number", "name", "location")
 
-class ItemView(admin.ModelAdmin):
-  list_display = ("number", "name", "lott")
+class ProjectView(admin.ModelAdmin):
+  list_display = ("number", "name")
 
-class LottView(admin.ModelAdmin):
-  list_display = ("number", "date", "warehouse_number")
+class ItemView(admin.ModelAdmin):
+  list_display = ("number", "name","amount", "lot", "price", "warehouseNum")
 
 class CustomerView(admin.ModelAdmin):
-  list_display = ("id", "name")
+  list_display = ("id", "name", "projectNum")
 
 class OrderView(admin.ModelAdmin):
-  list_display = ("id", "item", "employee", "amount")
+  list_display = ("id", "item", "employee", "amount", "project", "datetime")
 
 admin.site.register(Employee, EmployeeView)
 admin.site.register(Department, DepartmentView)
 admin.site.register(Warehouse, WarehouseView)
+admin.site.register(Project, ProjectView)
 admin.site.register(Item, ItemView)
-admin.site.register(Lott, LottView)
 admin.site.register(Customer, CustomerView)
 admin.site.register(Order, OrderView)
