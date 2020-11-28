@@ -4,7 +4,7 @@ class Department(models.Model):
   id = models.AutoField(primary_key=True)
   name = models.CharField(max_length=30)
   def __str__(self):
-    return f"{self.id}"
+    return f"{self.number}"
 
 class Employee(models.Model):
   id = models.CharField(max_length=10, primary_key=True)
@@ -15,7 +15,7 @@ class Employee(models.Model):
   email = models.EmailField(null=False)
   department_id = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="employee")
   def __str__(self):
-    return self.id
+    return f"{self.number}"
 
 class Warehouse(models.Model):
   id = models.AutoField(primary_key=True)
@@ -24,11 +24,17 @@ class Warehouse(models.Model):
   def __str__(self):
     return f"{self.id}"
 
+class Project(models.Model):
+  id = models.CharField(max_length=5, primary_key=True)
+  name = models.CharField(max_length=30)
+  def __str__(self):
+    return f"{self.id}"
+
 class Customer(models.Model):
   id = models.CharField(max_length=12, primary_key=True)
   name = models.CharField(max_length=30)
   def __str__(self):
-    return self.id
+    return f"{self.id}"
 
 class Item(models.Model):
   id = models.AutoField(primary_key=True)
@@ -37,14 +43,6 @@ class Item(models.Model):
   lott_id = models.IntegerField()
   warehouse_id = models.ForeignKey(Warehouse, on_delete=models.CASCADE, related_name="item")
   price = models.IntegerField()
-  def __str__(self):
-    return f"{self.id}"
-
-class Project(models.Model):
-  id = models.AutoField(primary_key=True)
-  name = models.CharField(max_length=30) 
-  employee_id = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="item")
-  customer_id = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="item")
   def __str__(self):
     return f"{self.id}"
 

@@ -11,7 +11,7 @@ class WarehouseView(admin.ModelAdmin):
   list_display = ("id", "name", "location")
 
 class ProjectView(admin.ModelAdmin):
-  list_display = ("id", "name", "employee_id", "customer_id")
+  list_display = ("id", "name")
 
 class ItemView(admin.ModelAdmin):
   list_display = ("id", "name","amount", "lott_id", "price", "warehouse_id")
